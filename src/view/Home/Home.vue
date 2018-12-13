@@ -5,7 +5,10 @@
       <el-aside width="200px">Aside</el-aside>
       <el-container>
         <el-main>Main</el-main>
-        <el-footer>Footer</el-footer>
+        <el-footer>
+          <div style="float: right!important;">Email Support: 493950747@qq.com</div>
+          <strong>&nbsp;This is a footer</strong>
+        </el-footer>
       </el-container>
     </el-container>
   </el-container>
