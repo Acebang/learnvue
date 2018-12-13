@@ -1,52 +1,60 @@
 <template>
-<div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <el-button @click.native="startHacking">Let's do it</el-button>
-    <div class="block">
-    <span class="demonstration">显示默认颜色</span>
-    <span class="wrapper">
-    <el-button type="success">成功按钮</el-button>
-    <el-button type="warning">警告按钮</el-button>
-    <el-button type="danger">危险按钮</el-button>
-    <el-button type="info">信息按钮</el-button>
-    </span>
-    </div>
-    <br/>
-    <div class="block">
-      <span class="demonstration">hover 显示颜色</span>
-    <span class="wrapper">
-    <el-button :plain="true" type="success">成功按钮</el-button>
-    <el-button :plain="true" type="warning">警告按钮</el-button>
-    <el-button :plain="true" type="danger">危险按钮</el-button>
-    <el-button :plain="true" type="info">信息按钮</el-button>
-    </span>
-    </div>
-  </div>
+	<div id="app">
+		<transition name="fade"
+		            mode="out-in">
+			<router-view></router-view>
+		</transition>
+	</div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      msg: 'Use Vue 2.0 Today!'
-    }
-  },
-
-  methods: {
-    startHacking () {
-      this.$notify({
-        title: 'It Works',
-        message: 'We have laid the groundwork for you. Now it\'s your time to build something epic!',
-        duration: 6000
-      })
-    }
-  }
+	name: 'app',
+	components: {
+	}
 }
 </script>
 
-<style>
+<style lang="less">
 body {
-  font-family: Helvetica, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	/*background: url(assets/bg1.jpg) center !important;
+		background-size: cover;*/
+	// background: #1F2D3D;
+	font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+#app {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	width: 100%;
+}
+.el-submenu [class^=fa] {
+	vertical-align: baseline;
+	margin-right: 10px;
+}
+.el-menu-item [class^=fa] {
+	vertical-align: baseline;
+	margin-right: 10px;
+}
+.toolbar {
+	background: #f2f2f2;
+	padding: 10px;
+	//border:1px solid #dfe6ec;
+	margin: 10px 0px;
+	.el-form-item {
+		margin-bottom: 10px;
+	}
+}
+.fade-enter-active,
+.fade-leave-active {
+	transition: all .2s ease;
+}
+.fade-enter,
+.fade-leave-active {
+	opacity: 0;
 }
 </style>
